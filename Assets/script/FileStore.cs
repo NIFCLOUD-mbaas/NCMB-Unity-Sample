@@ -3,9 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FileStore : MonoBehaviour
 {
+    public Text result;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +32,14 @@ public class FileStore : MonoBehaviour
             {
                 // 失敗
                 Debug.LogError(error);
+                result.text = (string)error.ErrorMessage;
             }
             else
             {
                 // 成功
                 lastedFileName = dateString + ".txt";
                 Debug.Log("Upload file success " + lastedFileName);
+                result.text = "Success";
             }
 
            
@@ -53,11 +57,13 @@ public class FileStore : MonoBehaviour
                 {
                     // 失敗
                     Debug.LogError(error);
+                    result.text = (string)error.ErrorMessage;
                 }
                 else
                 {
                     // 成功
                     Debug.Log("Get file success:  " + System.Text.Encoding.Default.GetString(fileData));
+                    result.text = "Success";
                 }
             });
         }
@@ -68,7 +74,13 @@ public class FileStore : MonoBehaviour
         if (lastedFileName != null)
         {
             NCMBFile file = new NCMBFile(lastedFileName);
-            file.DeleteAsync();
+            file.DeleteAsync ((NCMBException error) => {
+                if (error != null) {
+                    result.text = (string)error.ErrorMessage;
+                } else {
+                    result.text = "Success";
+                }
+            });
             lastedFileName = null;
         }
     }

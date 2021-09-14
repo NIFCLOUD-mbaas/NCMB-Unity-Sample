@@ -3,9 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DataStore : MonoBehaviour
 {
+	public Text result;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +36,14 @@ public class DataStore : MonoBehaviour
 			{
 				//エラー処理
 				Debug.LogError(e);
+				result.text = (string)e.ErrorMessage;
 			}
 			else
 			{
 				//成功時の処理
 				lastedObjectID = testClass.ObjectId;
 				Debug.Log("Quick start success ");
+				result.text = "Success";
 			}
 		});
 	}
@@ -53,12 +57,14 @@ public class DataStore : MonoBehaviour
 			{
 				//エラー処理
 				Debug.LogError(e);
+				result.text = (string)e.ErrorMessage;
 			}
 			else
 			{
 				//成功時の処理
 				lastedObjectID = obj.ObjectId;
 				Debug.Log("Save object success " + lastedObjectID);
+				result.text = "Success";
 			}
 		});
 	}
@@ -75,11 +81,13 @@ public class DataStore : MonoBehaviour
 				{
 					//エラー処理
 					Debug.LogError(e);
+					result.text = (string)e.ErrorMessage;
 				}
 				else
 				{
 					//成功時の処理
 					Debug.Log("Get object success " + lastedObjectID);
+					result.text = "Success";
 				}
 			});
 		}
@@ -96,6 +104,7 @@ public class DataStore : MonoBehaviour
 				{
 					//エラー処理
 					Debug.LogError(e);
+					result.text = (string)e.ErrorMessage;
 				}
 				else
 				{
@@ -105,12 +114,14 @@ public class DataStore : MonoBehaviour
 						{
 							//エラー処理
 							Debug.LogError(e2);
+							result.text = (string)e.ErrorMessage;
 						}
 						else
 						{
 							//成功時の処理
 							lastedObjectID = obj2.ObjectId;
 							Debug.Log("Update object success " + lastedObjectID);
+							result.text = "Success";
 						}
 					});
 				}
@@ -131,6 +142,7 @@ public class DataStore : MonoBehaviour
 				{
 					//エラー処理
 					Debug.LogError(e);
+					result.text = (string)e.ErrorMessage;
 				}
 				else
 				{
@@ -139,6 +151,7 @@ public class DataStore : MonoBehaviour
 					obj2.DeleteAsync();
 					lastedObjectID = null;
 					Debug.Log("Delete object success " + lastedObjectID);
+					result.text = "Success";
 				}
 			});
 		}
@@ -153,9 +166,11 @@ public class DataStore : MonoBehaviour
 			{
 				//検索失敗時の処理
 				Debug.LogError(e);
+				result.text = (string)e.ErrorMessage;
 			}
 			else
 			{
+				result.text = "Success";
 				//Scoreが7のオブジェクトを出力
 				foreach (NCMBObject obj in objList)
 				{
@@ -186,12 +201,14 @@ public class DataStore : MonoBehaviour
 			{
 				//エラー処理
 				Debug.LogError(e);
+				result.text = (string)e.ErrorMessage;
 			}
 			else
 			{
 				//成功時の処理
 				lastedObjectID = obj.ObjectId;
 				Debug.Log("Save object with ACL success " + lastedObjectID);
+				result.text = "Success";
 			}
 		});
 	}

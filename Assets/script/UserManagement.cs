@@ -6,13 +6,18 @@ using System.Net.Mail;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+// using UnityEngine.UIElements;
 
 public class UserManagement : MonoBehaviour
 {
     public InputField user;
     public InputField password;
     public InputField roleName;
+    public Button btnLogin;
+    public Button btnLogout;
+    public Button btnAddMemberToRole;
+    public Button btnRemoveFromRole;
+    public Button btnAddChildRole;
     private bool isLogedIn = false;
     // Start is called before the first frame update
     void Start()
@@ -45,12 +50,12 @@ public class UserManagement : MonoBehaviour
 
     public void SetActive()
     {
-        GameObject.Find("LoginOrSignUp").SetActive(!isLogedIn);
-        GameObject.Find("Password").SetActive(!isLogedIn);
-        GameObject.Find("LogOut").SetActive(isLogedIn);
-        GameObject.Find("AddMemberToRole").SetActive(isLogedIn);
-        GameObject.Find("RemoveMemberFromRole").SetActive(isLogedIn);
-        GameObject.Find("AddChildRole").SetActive(isLogedIn);
+        btnLogin.gameObject.SetActive(!isLogedIn);
+        password.gameObject.SetActive(!isLogedIn);
+        btnLogout.gameObject.SetActive(isLogedIn);
+        btnAddMemberToRole.gameObject.SetActive(isLogedIn);
+        btnRemoveFromRole.gameObject.SetActive(isLogedIn);
+        btnAddChildRole.gameObject.SetActive(isLogedIn);
     }
 
     public bool IsEmail(string email)
@@ -161,6 +166,7 @@ public class UserManagement : MonoBehaviour
             NCMBUser.LogOutAsync();
             isLogedIn = false;
             SetActive();
+            SceneManager.LoadScene("Main");
         }
     }
 
