@@ -114,6 +114,7 @@ public class UITestDatastore : MonoBehaviour
         var tvResult = tvResultGameObj.GetComponent<Text>();
         var result = tvResult.text;
         Assert.True(result.Contains("Success"));
+        yield return new WaitForSeconds(1);
     }
 
     [UnityTest]
@@ -123,7 +124,7 @@ public class UITestDatastore : MonoBehaviour
         var btnDatastore = btnDatastoreGameObj.GetComponent<Button>();
         btnDatastore.onClick.Invoke();
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         
         var btnSaveGameObj = GameObject.Find("Save");
         var btnSave = btnSaveGameObj.GetComponent<Button>();
@@ -201,7 +202,7 @@ public class UITestDatastore : MonoBehaviour
         var btnDatastore = btnDatastoreGameObj.GetComponent<Button>();
         btnDatastore.onClick.Invoke();
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
 
         var btnGameObj = GameObject.Find("ACL");
         var btn = btnGameObj.GetComponent<Button>();

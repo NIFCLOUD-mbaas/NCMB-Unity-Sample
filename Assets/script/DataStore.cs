@@ -35,7 +35,7 @@ public class DataStore : MonoBehaviour
 			if (e != null)
 			{
 				//エラー処理
-				Debug.LogError(e);
+				Debug.LogError(e.ErrorMessage);
 				result.text = (string)e.ErrorMessage;
 			}
 			else
@@ -56,7 +56,7 @@ public class DataStore : MonoBehaviour
 			if (e != null)
 			{
 				//エラー処理
-				Debug.LogError(e);
+				Debug.LogError(e.ErrorMessage);
 				result.text = (string)e.ErrorMessage;
 			}
 			else
@@ -80,7 +80,7 @@ public class DataStore : MonoBehaviour
 				if (e != null)
 				{
 					//エラー処理
-					Debug.LogError(e);
+					Debug.LogError(e.ErrorMessage);
 					result.text = (string)e.ErrorMessage;
 				}
 				else
@@ -103,7 +103,7 @@ public class DataStore : MonoBehaviour
 				if (e != null)
 				{
 					//エラー処理
-					Debug.LogError(e);
+					Debug.LogError(e.ErrorMessage);
 					result.text = (string)e.ErrorMessage;
 				}
 				else
@@ -113,7 +113,7 @@ public class DataStore : MonoBehaviour
 						if (e2 != null)
 						{
 							//エラー処理
-							Debug.LogError(e2);
+							Debug.LogError(e2.ErrorMessage);
 							result.text = (string)e.ErrorMessage;
 						}
 						else
@@ -141,7 +141,7 @@ public class DataStore : MonoBehaviour
 				if (e != null)
 				{
 					//エラー処理
-					Debug.LogError(e);
+					Debug.LogError(e.ErrorMessage);
 					result.text = (string)e.ErrorMessage;
 				}
 				else
@@ -165,7 +165,7 @@ public class DataStore : MonoBehaviour
 			if (e != null)
 			{
 				//検索失敗時の処理
-				Debug.LogError(e);
+				Debug.LogError(e.ErrorMessage);
 				result.text = (string)e.ErrorMessage;
 			}
 			else
@@ -200,7 +200,7 @@ public class DataStore : MonoBehaviour
 			if (e != null)
 			{
 				//エラー処理
-				Debug.LogError(e);
+				Debug.LogError(e.ErrorMessage);
 				result.text = (string)e.ErrorMessage;
 			}
 			else

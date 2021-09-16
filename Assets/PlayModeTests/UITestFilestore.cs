@@ -89,7 +89,7 @@ public class UITestFilestore : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
-        var btnDeleteGameObj = GameObject.Find("Delete");
+        var btnDeleteGameObj = GameObject.Find("Delete File");
         var btnDelete = btnDeleteGameObj.GetComponent<Button>();
         Assert.NotNull(btnDelete);
         btnDelete.onClick.Invoke();
