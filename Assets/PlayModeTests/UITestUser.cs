@@ -40,7 +40,7 @@ public class UITestUser : MonoBehaviour
         var ifPasswordGameObj = GameObject.Find("Password");
         var ifPassword = ifPasswordGameObj.GetComponent<InputField>();
 
-        ifUsername.text = "testuser";
+        ifUsername.text = "user_test1";
         ifPassword.text = "123456";
 
         var btnLogInGameObject = GameObject.Find("LoginOrSignUp");
@@ -73,7 +73,7 @@ public class UITestUser : MonoBehaviour
         var ifPasswordGameObj = GameObject.Find("Password");
         var ifPassword = ifPasswordGameObj.GetComponent<InputField>();
 
-        ifUsername.text = "testuser";
+        ifUsername.text = "user_test1";
         ifPassword.text = "123456";
 
         var btnLogInGameObject = GameObject.Find("LoginOrSignUp");
